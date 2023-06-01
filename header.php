@@ -131,8 +131,8 @@
     }
 
     .dark-mode {
-      background-color: #333;
-      color: #fff;
+      background-color: #771;
+      color: #bbb;
     }
 
     @media (max-width: 768px) {
