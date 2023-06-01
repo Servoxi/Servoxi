@@ -57,110 +57,203 @@
         </div>
         </div> -->
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
 
-            <header class="site-header">
-                <div id="header-wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <nav class="navbar navbar-expand-lg navbar-light">
-                                    <a class="navbar-brand logo text-primary mb-0 font-w-7" href="index.php">
-                                        <img width="64" height="64" class="img-fluid logo-front"
-                                            src="assets/images/logo-2.png" style="margin-left:-7px">
-                                    </a>
-                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#navbarNav" aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon" style="margin-left:-7px"></span>
-                                    </button>
-                                    <div class="navbar-collapse collapse show" id="navbarNav" style="">
-                                        <ul class="navbar-nav mx-auto">
-                                            <li class="nav-item"> <a class="nav-link" href="index.php">Home</a>
-                                            </li>
-                                            <li class="nav-item"> <a class="nav-link" href="about-us.php">About Us</a>
-                                            </li>
-                                            <li class="nav-item"> <a class="nav-link" href="services.php">Services</a>
-                                            </li>
-                                            <li class="nav-item"> <a class="nav-link" href="contact-us.php">Contact
-                                                    US</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+    .site-header {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background-color 0.3s ease;
+    }
+
+    .logo img {
+      width: 64px;
+      height: 64px;
+      margin-left: -7px;
+    }
+
+    .navbar-nav {
+      text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+      color: #333;
+      margin: 0 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ff8c00;
+    }
+
+    .dark-mode-toggle {
+      margin-left: 10px;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      background-color: #ccc;
+      border-radius: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-mode-toggle:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 21px;
+      height: 21px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .dark-mode-toggle.active {
+      background-color: #ff8c00;
+    }
+
+    .dark-mode-toggle.active:before {
+      transform: translateX(25px);
+    }
+
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-nav {
+        flex-direction: column;
+      }
+
+      .navbar-nav .nav-link {
+        margin: 10px 0;
+      }
+
+      .navbar-toggler {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 101;
+        color: #333;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      .navbar-toggler:focus {
+        outline: none;
+      }
+
+      .navbar-toggler-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        border-top: 2px solid #333;
+        transition: transform 0.3s ease;
+      }
+
+      .navbar-toggler-icon:before,
+      .navbar-toggler-icon:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease;
+      }
+
+      .navbar-toggler-icon:before {
+        top: -6px;
+      }
+
+      .navbar-toggler-icon:after {
+        bottom: -6px;
+      }
+
+      .navbar-toggler.collapsed .navbar-toggler-icon:before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+
+      .navbar-toggler.collapsed .navbar-toggler-icon:after {
+        transform: rotate(-45deg);
+        bottom: 0;
+      }
+
+      .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .navbar-collapse.show {
+        max-height: 500px;
+      }
+
+      .navbar-collapse .nav-link {
+        margin: 10px 0;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand logo" href="index.php">
+          <img class="img-fluid logo-front" src="assets/images/logo-2.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"> <a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"> <a class="nav-link" href="about-us.php">About Us</a></li>
+            <li class="nav-item"> <a class="nav-link" href="services.php">Services</a></li>
+            <li class="nav-item"> <a class="nav-link" href="contact-us.php">Contact Us</a></li>
+          </ul>
+          <div class="dark-mode-toggle" onclick="toggleDarkMode()"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Add your content here -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      document.querySelector(".dark-mode-toggle").classList.toggle("active");
+    }
+  </script>
 
 
-            <!-- <header id="main-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<nav class="navbar navbar-expand-lg navbar-light">
-							<a class="navbar-brand" href="index.html">
-								<img class="img-fluid" src="images/logo-2.png" alt="img">
-							</a>
-							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="menu-btn d-inline-block" id="menu-btn">
-								<span class="line"></span>
-								<span class="line"></span>
-								<span class="line"></span>
-							</span>
-							<span class="ion-navicon"></span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav mr-auto w-100 justify-content-end">
-									<li class="nav-item">
-										<a class="nav-link active" href="#iq-home">Home</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#iq-about">About us</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#iq-feature">Feature</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#iq-portfolio">Portfolio</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="#iq-contact">Contact US</a>
-									</li>
-								</ul>
-							</div>
-							<div class="sub-main">
-								<ul class="shop_list">
-									<li class="search-btn list-inline-item">
-										<div class="search-box">
-											<form method="get" class="search-form" action="https://iqonic.design/wp-themes/sofbox/">
-												<label for="search-form-5e7adc86eded3">
-													<span class="screen-reader-text">Search for:</span>
-												</label>
-												<input type="search" id="search-form-5e7adc86eded3" class="search-field" placeholder="Search" value="" name="s">
-												<button type="submit" class="search-submit"><i class="fa fa-search"></i><span class="screen-reader-text">Search</span></button>
-											</form>
-										</div>
-									</li>
-									<li class="cart-btn list-inline-item">
-										<div class="cart_count">
-											<a class="parents mini-cart-count" href="https://iqonic.design/wp-themes/sofbox/cart/">
-												<i class="fa fa-shopping-cart"></i>
-												<div id="mini-cart-count">
-													0
-												</div>
-											</a>
-										</div>
-									</li>
-									<li class="button-btn list-inline-item">
-										<nav aria-label="breadcrumb">
-											<div class="blue-btn button"><a href="#">Get Started</a></div>
-										</nav>
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header> -->
+           
